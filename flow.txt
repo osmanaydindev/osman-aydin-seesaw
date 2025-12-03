@@ -12,7 +12,7 @@
     a- mouse, game box'ın üstüne gelince createNewDiv fonksiyonu çalışsın. yeni bir div oluşsun. 
     b- lastDiv=yeni oluşan div. mouse hareket ettikçe lastDiv'de bir şeyler değişsin (position x). mouse'un x değeri lastDiv'in x değeri. 
     c- tıklanınca 
-        + lastDiv'in position y tahtaya gidecek.
+        + lastDiv'in değerleriyle yeni bir element oluşup, aldığı değerlerle position y ile tahtaya düşecek.
         + lastForce - ise left'e eklenecek + ise right'a
         + ikisini topla 100'e böl (100'e bölünür çünkü) örnek projede fiziktekinin aksine bir tarafta ağırlık varsa tam çökmüyor. çökme katsayısını azalttık.
         + tiltAngle= sonuç
