@@ -13,28 +13,39 @@
             <div class="info">
                 <div class="info-card">
                     <p class="title">LEFT WEIGHT</p>
-                    <p class="context">0.0 kg</p>
+                    <p id="left-weight" class="context">0.0 kg</p>
                 </div>
                 <div class="info-card">
                     <p class="title">NEXT WEIGHT</p>
-                    <p class="context">0 kg</p>
+                    <p id="next-weight" class="context">0 kg</p>
                 </div>
                 <div class="info-card">
                     <p class="title">RIGHT WEIGHT</p>
-                    <p class="context">0.0 kg</p>
+                    <p id="right-weight" class="context">0.0 kg</p>
                 </div>
                 <div class="info-card">
                     <p class="title">TILT ANGLE</p>
-                    <p class="context">0.0°</p>
+                    <p id="tilt-angle" class="context">0.0°</p>
                 </div>
             </div>
-            <div class="screen">
-                <div class="top"></div>
-                <div class="bottom"></div>
+
+            <div class="screen" >
+                <div class="top">
+
+                    <div id="game-box" class="game-box to-center" style="position: relative;">
+                    </div>
+                    
+                    <div id="ball" class="ball"></div>
+                    <div id="seesaw" class="seesaw"></div>
+                    <div id="triangle" class="triangle to-center"></div>
+
+                </div>
             </div>
+
             <div class="actions">
                 <button class="btn refresh">🔄 Reset Seesaw</button>
             </div>
+
             <div class="logs"></div>
         </div>
     </main>

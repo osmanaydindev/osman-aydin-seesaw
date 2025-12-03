@@ -5,9 +5,11 @@
 1- Mantığı oluştur
     * lastDiv => son oluşturulan div'i işaret eder.
     * forces => toplam kuvvetler dizisi
+    * id => her top düştüğünde z-index id ye eşit olacak 1 artacak. her topun id değerinde dinamik bir id si olacak.
     * lastForce => lastDiv.text * (lastDiv.positionx - origin(tahtanın merkez piksel)) Örnek: 9*(370-400)= -270
     * leftWight, rightWeight, nextWight (lastDiv'in text), leftForce, rightForce, tiltAngle 
     * createNewDiv() => random kg:text, w-h:kg*2px, random renk:bg.
+    * 
 
     a- mouse, game box'ın üstüne gelince createNewDiv fonksiyonu çalışsın. yeni bir div oluşsun. 
     b- lastDiv=yeni oluşan div. mouse hareket ettikçe lastDiv'de bir şeyler değişsin (position x). mouse'un x değeri lastDiv'in x değeri. 
