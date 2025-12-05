@@ -22,6 +22,7 @@ main {
     border-radius: 5px;
     padding: 30px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 70px;
 }
 .info{
     display: flex;
@@ -34,7 +35,8 @@ main {
     text-align: center;
     padding: 16px 24px;
     border-radius: 10px;
-    background: rgb(243, 243, 243);
+    background: rgb(247, 247, 247);
+    border: 1px solid  rgb(230, 230, 230);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,6 +53,7 @@ main {
     font-size: 1.3rem;
     color: #474747;
     font-weight:600;
+    transition: all 0.3s ease;
 }
 .screen{
     position: relative;
@@ -62,7 +65,7 @@ main {
     align-items: center;
     box-sizing: border-box;
     background: rgb(137, 140, 155);    
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .screen .top{
     width: 100%;
@@ -108,7 +111,19 @@ main {
     font-weight: 700;
     color: rgb(0, 0, 0);
     font-size: 0.8rem;
-    /* transition: all 0.2s ease; */
+    z-index: 2;
+}
+.ball-on-seesaw{
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    position: absolute;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 3;
 }
 .actions{
     display: flex;
@@ -153,19 +168,21 @@ main {
     padding: 10px;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: flex-start;
     justify-items: start;
     gap: 6px;
 }
 .log{
     font-size: 0.85rem;
+    line-height: 1.4;
     color: #333;
     width: 100%;
     background: white;
     width: fit-content;
     padding: 6px 10px;
-    border-radius: 3px;
     box-shadow: 0 0 5px rgba(0, 0,0, 0.1);
-
+    transition: all 0.3s ease;
+    border-radius: 7px;
+    border-left: blue 3px solid;
 }
