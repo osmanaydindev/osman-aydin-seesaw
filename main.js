@@ -7,6 +7,7 @@ const colorElement          = document.getElementById('color');
 const screenElement         = document.getElementById('screen');
 const seesawElement         = document.getElementById('seesaw');
 const tiltAngleElement      = document.getElementById('tilt-angle');
+const logs                  = document.getElementById('logs');
 
 const rectSeesaw    = seesawElement.getBoundingClientRect();
 const rectScreen    = screenElement.getBoundingClientRect();
@@ -92,12 +93,10 @@ function handleClick(event) {
     seesawElement.style.transform = `rotate(${tiltAngle}deg)`;
 
     const newDiv = document.createElement("div");
-    newDiv.classList.add("ball-on-seesaw");
     newDiv.style.backgroundColor = color;
     newDiv.style.width = `${(nextBallKG*3.6)+27}px`;
     newDiv.style.height = `${(nextBallKG*3.6)+27}px`;
     newDiv.style.left = `${leftPos - ((nextBallKG*3.6)+27)/2}px`;
-    newDiv.innerText = `${nextBallKG} kg`;
     newDiv.style.borderRadius = "100%";
     newDiv.style.textAlign = "center";
     newDiv.style.display = "flex";
@@ -108,10 +107,25 @@ function handleClick(event) {
     newDiv.style.position = "absolute";
     newDiv.style.top = `-${((nextBallKG*3.6)+27)/2 + 9}px`;
     newDiv.style.boxShadow = `0 2px 5px rgba(0,0,0,0.2)`;
+    
+    newDiv.classList.add("ball-on-seesaw");
+    newDiv.innerText = `${nextBallKG} kg`;
     gameBox.appendChild(newDiv);
+
+    // eğime göre topların y pozisypnu ayarlanacak. 
+    // eğim - ise sol taraf aşağı sağ taraf yukarı
+    // eğim + ise sol yukarı sağ aşağı. 
+    // seesaw 0 sabit. eğim ve seesaw uzunluğu ile topların y pozisyonu hesaplanacak.
+    // diğer toplar eğime göre yeniden hesaplanacak. 
+    const seesawRect = seesawElement.getBoundingClientRect();
 
     console.log("seesaw.x: ", seesawElement.getBoundingClientRect().x);
     
+    const newLog = document.createElement("div");
+    newLog.classList.add("log");
+    newLog.innerText = `📦 ${nextBallKG}kg dropped on ${differenceX > 0 ? 'right':'left'} side at ${Math.abs(differenceX)}px from center`;
+    logs.appendChild(newLog);
+    logs.scrollTop = 0; 
 
     // topu resetle
     nextBallKG = 0;
