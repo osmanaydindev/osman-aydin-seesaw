@@ -53,7 +53,8 @@ function setBallPositionX() {
     const ballCenterX = ball.getBoundingClientRect().x + (ball.getBoundingClientRect().width/2);
     const seesawCenterX = rectSeesaw.x + (rectSeesaw.width/2);
     const differenceX = ballCenterX - seesawCenterX;
-    console.log("kg: ", nextBallKG," differenceX: ", differenceX);
+    
+    // console.log("kg: ", nextBallKG," differenceX: ", differenceX);
 
     if(ballCenterX < seesawCenterX) {
         leftWeight += nextBallKG;
@@ -68,12 +69,12 @@ function setBallPositionX() {
 }
 function changeSeesawTilt(){
     tiltAngle = (leftBalance+rightBalance) / tiltMultiplier;
-    console.log("tiltAngle: ", tiltAngle);
     if(tiltAngle > maxTiltAngle) tiltAngle = maxTiltAngle;
     if(tiltAngle < minTiltAngle) tiltAngle = minTiltAngle;
     tiltAngleElement.innerText = `${tiltAngle.toFixed(1)}°`;
     seesawElement.style.transform = `rotate(${tiltAngle}deg)`;
 }
+
 function createNewBall(){
     const newBall = document.createElement("div");
     newBall.classList.add("ball-on-seesaw");
@@ -82,9 +83,17 @@ function createNewBall(){
     newBall.style.width = `${(nextBallKG*3.6)+27}px`;
     newBall.style.height = `${(nextBallKG*3.6)+27}px`;
     newBall.innerText = `${nextBallKG} kg`;
-
     newBall.style.left = `${leftPos - ((nextBallKG*3.6)+27)/2}px`;
-    newBall.style.top = `-${((nextBallKG*3.6)+27)/2 + 9}px`;
+    // const seesawPosition = seesawElement.getBoundingClientRect();
+    newBall.style.top = `0%`;
+    const ballCenterX = newBall.getBoundingClientRect().x + (newBall.getBoundingClientRect().width/2);
+    const seesawCenterX = rectSeesaw.x + (rectSeesaw.width/2);
+    const differenceX = ballCenterX - seesawCenterX;
+    const newY = (tiltAngle / tiltMultiplier) * differenceX * 0.5;
+    requestAnimationFrame(() => {
+        newBall.style.top = `calc(50% + ${newY}px)`;
+    });
+        
     return newBall;
 }
 function createLog(differenceX){
@@ -110,8 +119,8 @@ function setPositionsOfBallsOnSeesaw(){
         const ballCenterX = ballElement.getBoundingClientRect().x + (ballElement.getBoundingClientRect().width/2);
         const seesawCenterX = rectSeesaw.x + (rectSeesaw.width/2);
         const differenceX = ballCenterX - seesawCenterX;
-        const newY = (tiltAngle / tiltMultiplier) * differenceX * 0.5;
-        ballElement.style.top = `calc(-50% + ${newY}px)`;
+        const newY = ((tiltAngle / tiltMultiplier) * differenceX * 0.5) - ballElement.getBoundingClientRect().height/2;
+        ballElement.style.top = `calc(50% + ${newY}px)`;
     });
 }
 
@@ -137,14 +146,21 @@ function handleMove(event) {
 
 }
 function handleClick(event) {
-    console.log("tiklandi : ", event);
-    
     if(nextBallKG==0||color=="") {
         return;
     }
 
+        
+    console.log("seesaw.x: ", seesawElement.getBoundingClientRect().x);
+    console.log("seesaw.y: ", seesawElement.getBoundingClientRect().y);
+    console.log("------------------------------------------------");
     const differenceX = setBallPositionX();
     changeSeesawTilt();
+
+    setPositionsOfBallsOnSeesaw();
+    console.log("seesaw.x: ", seesawElement.getBoundingClientRect().x);
+    console.log("seesaw.y: ", seesawElement.getBoundingClientRect().y);
+    console.log("*************************************************");
 
     const newBall = createNewBall();
     gameBox.appendChild(newBall);
@@ -154,8 +170,9 @@ function handleClick(event) {
     // eğim + ise sol yukarı sağ aşağı. 
     // seesaw 0 sabit. eğim ve seesaw uzunluğu ile topların y pozisyonu hesaplanacak.
     // diğer toplar eğime göre yeniden hesaplanacak. 
-    console.log("seesaw.x: ", seesawElement.getBoundingClientRect().x);
-    setPositionsOfBallsOnSeesaw();
+
+
+    
     
     const newLog = createLog(differenceX);
     logs.prepend(newLog);
