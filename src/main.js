@@ -5,6 +5,7 @@ import getRandomValues      from "./utlis/getRandomValues.js";
 import resetTransparentBall from "./utlis/resetTransparentBall.js";
 import refreshGame          from "./utlis/refreshGame.js";
 import createLog            from "./operations/log.js";
+import ballDownAuido        from "./utlis/ballDownAudio.js";
 
 import { setBallPositionX, createNewBall, setPositionsOfBallsOnSeesaw } from "./operations/ball.js";
 
@@ -49,6 +50,7 @@ function handleClick(event) {
     const differenceX = setBallPositionX();
     changeSeesawTilt();
     setPositionsOfBallsOnSeesaw();
+    ballDownAuido();
     constants.gameBoxElement.appendChild(createNewBall());
     setPositionsOfBallsOnSeesaw();
     const newLog = createLog(differenceX);
@@ -61,6 +63,7 @@ function handleClick(event) {
 
     // topu resetle
     resetTransparentBall();
+    handleMove(event);
 }
 
 
@@ -72,7 +75,6 @@ constants.gameBoxElement.addEventListener("click", handleClick);
 constants.gameBoxElement.addEventListener('mouseenter', () => {
     constants.gameBoxElement.addEventListener("mousemove", handleMove);
     constants.gameBoxElement.addEventListener("click", handleClick);
-    constants.gameBoxElement.addEventListener("mousemove", handleMove);
     constants.ball.style.visibility = "visible";
 });
 
