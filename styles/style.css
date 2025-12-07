@@ -1,6 +1,5 @@
 @import './info.css';
 @import './log.css';
-@import './ball.css';
 @import './action.css';
 @import './screen.css';
 
@@ -29,6 +28,7 @@ main {
     padding: 30px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 70px;
+
 }
 .to-center{
     position: absolute; 

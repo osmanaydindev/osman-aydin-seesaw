@@ -10,7 +10,7 @@ export const constants = {
     refreshBTN          : document.getElementById('refreshBTN'),
     gameBoxElement      : document.getElementById('game-box'),
     ball                : document.getElementById('ball'),
-    colors              : ['red', 'blue', 'green', 'yellow', 'purple', 'orange'],
+    colors              : ['#3599db', '#34495e', '#1abc9c', '#2ecc71', '#e67e22', '#e74c3c', '#9b59b6'],
     maxKG               : 10,
     tiltMultiplier      : 30,
     maxTiltAngle        : 30,
