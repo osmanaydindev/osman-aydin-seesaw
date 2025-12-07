@@ -1,4 +1,4 @@
-import { constants } from "../constants.js";
+import { constants } from "../store/constants.js";
 
 export default function getRandomValues() {
     let nextBallKG = Math.floor(Math.random() * constants.maxKG)+1;

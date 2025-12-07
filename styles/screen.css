@@ -39,7 +39,8 @@
     background: #63472d;
     z-index: 1;
     transform-origin: center center;
-    transition: transform 0.2s ease;
+    transition: transform 0.5s ease-in-out;
+    user-select: none;
 }
 .triangle {
     width: 0;
@@ -47,4 +48,5 @@
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 20px solid #20233d;
+    user-select: none;
 }
