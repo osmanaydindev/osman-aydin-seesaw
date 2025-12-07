@@ -1,12 +1,12 @@
 import { constants }        from "./store/constants.js";
 import { variables }        from "./store/variables.js";
-import { changeSeesawTilt, updateSeesawValue } from "./operations/seesaw.js";
 import getRandomValues      from "./utlis/getRandomValues.js";
 import resetTransparentBall from "./utlis/resetTransparentBall.js";
 import refreshGame          from "./utlis/refreshGame.js";
 import createLog            from "./operations/log.js";
 import ballDownAuido        from "./utlis/ballDownAudio.js";
 
+import { changeSeesawTilt, updateSeesawValue } from "./operations/seesaw.js";
 import { setBallPositionX, createNewBall, setPositionsOfBallsOnSeesaw } from "./operations/ball.js";
 
 function handleMove(event) {
@@ -27,7 +27,6 @@ function handleMove(event) {
     
     variables.maxLeft = (currentSeesaw.x + currentSeesaw.width) - currentGameBox.x;
     variables.minLeft = currentSeesaw.x - currentGameBox.x;
-
     
     //tahta ile gameBoxElement arasındaysa
     if(mouseLocation < currentSeesaw.x-currentGameBox.x) { 
