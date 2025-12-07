@@ -1,5 +1,7 @@
 # 🪵⚖️ Seesaw (Tahtarevalli) Uygulaması
-Bu proje, verilen case kapsamında farklı ağırlıklardaki topların tahtarevallinin sol ve sağ tarafına bırakılması, denge durumunun hesaplanması ve kullanıcıya etkileşimli bir arayüz sunulması için geliştirilmiştir. Animasyon ve ses efektleri kullanıldı. Canlı proje linki: 
+Bu proje, verilen case kapsamında farklı ağırlıklardaki topların tahtarevallinin sol ve sağ tarafına bırakılması, denge durumunun hesaplanması ve kullanıcıya etkileşimli bir arayüz sunulması için geliştirilmiştir. Animasyon ve ses efektleri kullanıldı. 
+Canlı proje linki: https://osman-aydin-seesaw.vercel.app/
+Tanıtım Videosu: https://www.youtube.com/watch?v=pvSHMsb7Q8M 
 
 ## 🧠 Thought Process & Tasarım Süreci
 - İşe başlamadan önce flow.txt dosyasında izleyeceğim yolu adım adım taslak halinde çıkardım.
