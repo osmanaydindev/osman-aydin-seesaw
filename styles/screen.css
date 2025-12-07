@@ -52,7 +52,7 @@
     background: #ff4d4d;
     border-radius: 50%;
     position: absolute;
-    top: 46.5%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -64,6 +64,15 @@
     font-size: 0.8rem;
     z-index: 4;
     user-select: none;
+}
+.ball::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 70px;
+    border-left: 2px dashed #34495e;
+    opacity: 0.5;
 }
 .ball-on-seesaw{
     border-radius: 100%;
