@@ -9,13 +9,6 @@ import ballDownAuido        from "./utlis/ballDownAudio.js";
 
 import { setBallPositionX, createNewBall, setPositionsOfBallsOnSeesaw } from "./operations/ball.js";
 
-// const rectSeesaw          = constants.seesawElement.getBoundingClientRect();
-// const rectGameBox         = constants.gameBoxElement.getBoundingClientRect();
-
-// variables.minLeft         = rectSeesaw.x - rectGameBox.x;
-// variables.maxLeft         = rectSeesaw.x - rectGameBox.x + rectSeesaw.width;
-
-
 function handleMove(event) {
     if(variables.nextBallKG==0||variables.color=="") {
         var res = getRandomValues();
@@ -69,7 +62,6 @@ function handleClick(event) {
     resetTransparentBall();
     handleMove(event);
 }
-
 
 refreshBTN.addEventListener('click', () => refreshGame());
 
