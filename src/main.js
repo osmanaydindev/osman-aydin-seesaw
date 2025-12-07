@@ -1,5 +1,5 @@
 import { constants } from "./constants.js";
-
+import getRandomValues from "./utlis/getRandomValues.js";
 
 const rectSeesaw          = constants.seesawElement.getBoundingClientRect();
 const rectGameBox         = constants.gameBoxElement.getBoundingClientRect();
@@ -24,12 +24,6 @@ let minLeft         = rectSeesaw.x - rectGameBox.x;
 let maxLeft         = rectSeesaw.x - rectGameBox.x + rectSeesaw.width;
 
 
-
-function getRandomValues() {
-    nextBallKG = Math.floor(Math.random() * constants.maxKG)+1;
-    colorIdx = Math.floor(Math.random() * constants.colors.length)+1;
-    color = constants.colors[colorIdx-1];
-}
 function setBallPositionX() {
 
     let ballCenterX = ball.getBoundingClientRect().x + (ball.getBoundingClientRect().width/2);
@@ -110,7 +104,9 @@ function setPositionsOfBallsOnSeesaw(){
 
 function handleMove(event) {
     if(nextBallKG==0||color=="") {
-        getRandomValues();
+        var res = getRandomValues();
+        nextBallKG = res.nextBallKG;
+        color = res.color;
         constants.nextBallElement.innerText = `${nextBallKG} KG`;
         ball.style.backgroundColor = color;
         ball.innerText = `${nextBallKG} kg`;
