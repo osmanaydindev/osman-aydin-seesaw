@@ -1,5 +1,5 @@
 # 🪵⚖️ Seesaw (Tahtarevalli) Uygulaması
-Bu proje, verilen case kapsamında farklı ağırlıklardaki topların tahtarevallinin sol ve sağ tarafına bırakılması, denge durumunun hesaplanması ve kullanıcıya etkileşimli bir arayüz sunulması için geliştirilmiştir. Animasyon ve ses efektleri kullanıldı. 
+Bu proje, verilen case kapsamında farklı ağırlıklardaki topların tahtarevallinin sol ve sağ tarafına bırakılması, denge durumunun hesaplanması ve kullanıcıya etkileşimli bir arayüz sunulması için geliştirilmiştir. Animasyon ve ses efektleri kullanıldı. Canlı proje linki: 
 
 ## 🧠 Thought Process & Tasarım Süreci
 - İşe başlamadan önce flow.txt dosyasında izleyeceğim yolu adım adım taslak halinde çıkardım.
@@ -26,7 +26,8 @@ Bu proje, verilen case kapsamında farklı ağırlıklardaki topların tahtareva
 
 ## 🤖 AI Assistance
 - Copilot ile bazı satır tamamlamalarını yaptım. Çoğu örneği hiç kullanmadım çünkü benim kod planlamam, mimarim ve izleyeceğim yol projeye başlamadan önce belirliydi.
-- ChatGPT ile bazı fonksiyon isimlendirmeleri ve bazı küçük optimizasyonlarda destek alındı.
+- ChatGPT ile bazı fonksiyon isimlendirmeleri ve bazı küçük optimizasyonlarda destek aldım.
+- Readme içeriği oluştururken markdown oluşturma işleminde ChatGPT'den yardım aldım.
 - Fizik hesaplamaları, oyun akışı ve UI tasarımının tüm çekirdek kısmını kendim geliştirdim.
 
 📈 Geliştirme Adımları
