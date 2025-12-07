@@ -55,7 +55,7 @@
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     opacity: 0.6;

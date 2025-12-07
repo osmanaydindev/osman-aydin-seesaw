@@ -1,6 +1,6 @@
 import { constants }        from "./store/constants.js";
 import { variables }        from "./store/variables.js";
-import { changeSeesawTilt } from "./operations/seesaw.js";
+import { changeSeesawTilt, updateSeesawValue } from "./operations/seesaw.js";
 import getRandomValues      from "./utlis/getRandomValues.js";
 import resetTransparentBall from "./utlis/resetTransparentBall.js";
 import refreshGame          from "./utlis/refreshGame.js";
@@ -55,12 +55,12 @@ function handleClick(event) {
     setPositionsOfBallsOnSeesaw();
     const newLog = createLog(differenceX);
     constants.logs.prepend(newLog);
-
+    
     requestAnimationFrame(() => {
         newLog.style.transform = "translateX(0)";
         newLog.style.opacity = 1;
     });
-
+    updateSeesawValue();
     // topu resetle
     resetTransparentBall();
     handleMove(event);
@@ -75,11 +75,11 @@ constants.gameBoxElement.addEventListener("click", handleClick);
 constants.gameBoxElement.addEventListener('mouseenter', () => {
     constants.gameBoxElement.addEventListener("mousemove", handleMove);
     constants.gameBoxElement.addEventListener("click", handleClick);
-    constants.ball.style.visibility = "visible";
+    constants.ball.style.display = "flex";
 });
 
 constants.gameBoxElement.addEventListener('mouseleave', () => {
     constants.gameBoxElement.removeEventListener("mousemove", handleMove);
     constants.gameBoxElement.removeEventListener("click", handleClick);
-    constants.ball.style.visibility = "hidden";
+    constants.ball.style.display = "none";
 });
