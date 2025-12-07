@@ -9,11 +9,11 @@ import ballDownAuido        from "./utlis/ballDownAudio.js";
 
 import { setBallPositionX, createNewBall, setPositionsOfBallsOnSeesaw } from "./operations/ball.js";
 
-const rectSeesaw          = constants.seesawElement.getBoundingClientRect();
-const rectGameBox         = constants.gameBoxElement.getBoundingClientRect();
+// const rectSeesaw          = constants.seesawElement.getBoundingClientRect();
+// const rectGameBox         = constants.gameBoxElement.getBoundingClientRect();
 
-variables.minLeft         = rectSeesaw.x - rectGameBox.x;
-variables.maxLeft         = rectSeesaw.x - rectGameBox.x + rectSeesaw.width;
+// variables.minLeft         = rectSeesaw.x - rectGameBox.x;
+// variables.maxLeft         = rectSeesaw.x - rectGameBox.x + rectSeesaw.width;
 
 
 function handleMove(event) {
@@ -27,11 +27,17 @@ function handleMove(event) {
         ball.style.width = `${(variables.nextBallKG*3.6)+27}px`;
         ball.style.height = `${(variables.nextBallKG*3.6)+27}px`;
     }
+    let currentSeesaw = constants.seesawElement.getBoundingClientRect();
+    let currentGameBox = constants.gameBoxElement.getBoundingClientRect();
     // gameBoxElement içindeki konumu
-    const mouseLocation = event.clientX - rectGameBox.x; 
+    const mouseLocation = event.clientX - currentGameBox.x; 
+    
+    variables.maxLeft = (currentSeesaw.x + currentSeesaw.width) - currentGameBox.x;
+    variables.minLeft = currentSeesaw.x - currentGameBox.x;
+
     
     //tahta ile gameBoxElement arasındaysa
-    if(mouseLocation < rectSeesaw.x-rectGameBox.x) { 
+    if(mouseLocation < currentSeesaw.x-currentGameBox.x) { 
         variables.leftPos = variables.minLeft;
     } else if(mouseLocation > variables.maxLeft) {
         variables.leftPos = variables.maxLeft;
@@ -42,8 +48,6 @@ function handleMove(event) {
 }
 
 function handleClick(event) {
-    console.log(variables.nextBallKG, variables.color);
-    
     if(variables.nextBallKG==0||variables.color=="") return;
     
 

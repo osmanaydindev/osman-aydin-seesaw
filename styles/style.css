@@ -10,20 +10,21 @@ body{
     user-select: none;
 }
 main {
-    height: 100vh;
-    min-width: 1000px;
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     margin: 0;
     background: rgb(243, 243, 243);
+    padding: 70px 0;
 }
 .container {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 755px;
+    width: 60%;
     background: white;
     margin: auto;
     border-radius: 5px;
@@ -37,4 +38,11 @@ main {
     top: 55%; 
     left: 50%; 
     transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 768px) {
+    .container {
+        width: 60%;
+        padding: 20px 10px;
+    }
+    
 }

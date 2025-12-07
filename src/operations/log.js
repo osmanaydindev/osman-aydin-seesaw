@@ -8,5 +8,6 @@ export default function createLog(differenceX){
     newLog.style.transform= `translateX(-10px)`;
     newLog.style.opacity= "0.5"; 
     newLog.innerText = `📦 ${variables.nextBallKG}kg dropped on ${ differenceX > 0 ? 'right':'left'} side at ${Math.abs(differenceX.toFixed(0))}px from center`;
+    variables.logId=logId;
     return newLog;
 }

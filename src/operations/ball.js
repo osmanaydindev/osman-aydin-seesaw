@@ -10,12 +10,10 @@ export function setBallPositionX() {
 
     if(ballCenterX < variables.minLeft+rectGameBox.x) ballCenterX = variables.minLeft+rectGameBox.x;
     else if(ballCenterX > variables.maxLeft+rectGameBox.x) ballCenterX = variables.maxLeft+rectGameBox.x;
-    console.log("After bounds check ballCenterX: ", ballCenterX - rectGameBox.x);
     
     const seesawCenterX = rectSeesaw.x + (rectSeesaw.width/2);
     const differenceX = ballCenterX - seesawCenterX;
     
-    console.log("kg: ", variables.nextBallKG," differenceX: ", differenceX);
 
     if(ballCenterX < seesawCenterX) {
         variables.leftWeight += variables.nextBallKG;
@@ -41,6 +39,7 @@ export function createNewBall(){
     newBall.innerText = `${variables.nextBallKG} kg`;
     newBall.style.left = `${variables.leftPos - ((variables.nextBallKG*3.6)+27)/2}px`;
     newBall.style.top = `0%`;    
+    variables.ballId=ballId;
     return newBall;
 }
 
@@ -51,6 +50,13 @@ export function setPositionsOfBallsOnSeesaw(){
         const ballCenterX = ballElement.getBoundingClientRect().x + (ballElement.getBoundingClientRect().width/2);
         const seesawCenterX = rectSeesaw.x + (rectSeesaw.width/2);
         const differenceX = ballCenterX - seesawCenterX;
+
+        if(ballCenterX<rectSeesaw.x){
+            ballElement.style.left = `${rectSeesaw.x - ballElement.getBoundingClientRect().width/2- constants.gameBoxElement.getBoundingClientRect().x}px`;
+        } else if (ballCenterX>rectSeesaw.right){
+            ballElement.style.left = `${rectSeesaw.right - ballElement.getBoundingClientRect().width/2 - constants.gameBoxElement.getBoundingClientRect().x}px`;
+        }
+        
         const newY = ((variables.tiltAngle / constants.tiltMultiplier) * differenceX * 0.5) - ballElement.getBoundingClientRect().height/2;
         ballElement.style.top = `calc(50% + ${newY}px)`;
     });

@@ -1,7 +1,7 @@
 .info{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
     user-select: none;
@@ -29,4 +29,24 @@
     color: #474747;
     font-weight:600;
     
+}
+@media screen and (max-width: 480px) {
+    .info{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .info div{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 950px) {
+    .info{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .info div{
+        width: 80%;
+    }
 }
