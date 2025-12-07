@@ -1,0 +1,38 @@
+@import './info.css';
+@import './log.css';
+@import './ball.css';
+@import './action.css';
+@import './screen.css';
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: rgb(243, 243, 243);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 755px;
+    background: white;
+    margin: auto;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 70px;
+}
+.to-center{
+    position: absolute; 
+    top: 55%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}

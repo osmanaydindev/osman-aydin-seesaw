@@ -1,0 +1,22 @@
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.btn{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.89rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.btn:hover{
+    transform: translateY(-1px);
+}
+.refresh{
+    background: #3e4172;
+    color: white;
+}
